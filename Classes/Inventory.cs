@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using GameInventory.Interfaces;
+
+namespace GameInventory.Classes
+{
+    public class Inventory<T> : IInventory<T>
+    {
+        private List<T> items = new List<T>();
+
+        public void AddItem(T item)
+        {
+            items.Add(item);
+            Console.WriteLine($"{item} ble lagt til i inventory!");
+        }
+
+        public T GetItem(int index)
+        {
+            if (index < 0 || index >= items.Count)
+            {
+                throw new IndexOutOfRangeException("Ugyldig indeks. Ingen slik gjenstand.");
+            }
+            return items[index];
+        }
+
+        public void ShowInventory()
+        {
+            Console.WriteLine("\n Inventory:");
+            if (items.Count == 0)
+            {
+                Console.WriteLine("Inventoryen er tom!");
+                return;
+            }
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {items[i]}");
+            }
+        }
+    }
+}
