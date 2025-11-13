@@ -11,8 +11,18 @@ namespace GameInventory
             Inventory<Weapon> weaponInventory = new Inventory<Weapon>();
             Inventory<string> potionInventory = new Inventory<string>();
 
+
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Velkommen til superduper mini rpg!");
             Console.WriteLine("---------------------------------");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(""" 
+            ░▀█▀░█▀█░█░█░█▀▀░█▀█░▀█▀░█▀█░█▀▄░█░█░░░█▀▄░█▀█░█▀█░█▀█░█▀█░▀▀█░█▀█
+            ░░█░░█░█░▀▄▀░█▀▀░█░█░░█░░█░█░█▀▄░░█░░░░█▀▄░█░█░█░█░█▀█░█░█░▄▀░░█▀█
+            ░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░░▀░░░░▀▀░░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀░▀░▀
+            """);
+            Console.ResetColor();
 
             bool running = true;
             while (running)
@@ -23,7 +33,7 @@ namespace GameInventory
                 Console.WriteLine("3. Vis inventory");
                 Console.WriteLine("4. Avslutt");
                 Console.Write("Ditt valg: ");
-                string choice = Console.ReadLine();
+                string? choice = Console.ReadLine();
 
                 switch (choice)
                 {
@@ -41,7 +51,9 @@ namespace GameInventory
 
                     case "4":
                         running = false;
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Avslutter programmet...");
+                        Console.ResetColor();
                         break;
 
                     default:
@@ -56,8 +68,8 @@ namespace GameInventory
             Console.WriteLine("\nVelg våpen:");
             Console.WriteLine("1. Sword (Damage: 25)");
             Console.WriteLine("2. Bow (Damage: 15)");
-            Console.Write("👉 Ditt valg: ");
-            string choice = Console.ReadLine();
+            Console.Write("Ditt valg: ");
+            string? choice = Console.ReadLine();
 
             switch (choice)
             {
@@ -78,8 +90,8 @@ namespace GameInventory
             Console.WriteLine("\nVelg potion:");
             Console.WriteLine("1. Health Potion");
             Console.WriteLine("2. Mana Potion");
-            Console.Write("👉 Ditt valg: ");
-            string choice = Console.ReadLine();
+            Console.Write("Ditt valg: ");
+            string? choice = Console.ReadLine();
 
             switch (choice)
             {
@@ -98,11 +110,15 @@ namespace GameInventory
         static void ShowAllInventories(Inventory<Weapon> weaponInventory, Inventory<string> potionInventory)
         {
             Console.WriteLine("\n-------------------------------");
-            Console.WriteLine("🗡 Våpen-inventory:");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Våpen-inventory:");
+            Console.ResetColor();
             weaponInventory.ShowInventory();
 
-            Console.WriteLine("\n🧪 Potion-inventory:");
+            Console.WriteLine("\nPotion-inventory:");
+            Console.ForegroundColor = ConsoleColor.Green;
             potionInventory.ShowInventory();
+            Console.ResetColor();
             Console.WriteLine("-------------------------------");
         }
     }
