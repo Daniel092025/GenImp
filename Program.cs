@@ -32,6 +32,7 @@ namespace GameInventory
                 Console.WriteLine("2. Legg til potion");
                 Console.WriteLine("3. Vis inventory");
                 Console.WriteLine("4. Avslutt");
+                Console.WriteLine("5. Lagre inventory til CSV");
                 Console.Write("Ditt valg: ");
                 string? choice = Console.ReadLine();
 
@@ -54,6 +55,18 @@ namespace GameInventory
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Avslutter programmet...");
                         Console.ResetColor();
+                        break;
+
+                    case "5":
+                        Console.WriteLine("Vil du lagre våpen (1) eller potions (2)?");
+                        string? saveChoice = Console.ReadLine();
+                        if (saveChoice == "1")
+                        weaponInventory.SaveToCsv("weapons.csv");
+                        else if (saveChoice == "2")
+                        potionInventory.SaveToCsv("potions.csv");
+                        
+                        else
+                        Console.WriteLine("Ugyldig valg.");
                         break;
 
                     default:

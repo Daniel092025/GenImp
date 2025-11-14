@@ -37,5 +37,18 @@ namespace GameInventory.Classes
                 Console.WriteLine($"{i + 1}. {items[i]}");
             }
         }
+
+        public void SaveToCsv(string filePath)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                foreach (var item in items)
+                {
+                    writer.WriteLine(item?.ToString());
+                }
+            }
+
+            Console.WriteLine($"Inventory lagret til fil: {filePath}");
+        }
     }
 }
