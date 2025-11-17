@@ -62,6 +62,7 @@ Console.WriteLine("Vil du lagre våpen (1) eller potions (2)?");
 Ett lite program med Generisk Implementasjon, som er i form av ett inventory med litt våpen og potions.
 Rundet opp med en simpel GUI og mulighet til å lagre til lokal CSV. 
 Følger reglene til interface "IInventory" med hva som er i inventoryen og hvordan det printes IStorable.
+Har også prøvd å bli bedre med å pushe til Git, så man får en bedre "historie" på fremgang.
 
 Forventning til at klassen bli brukt i en større sammenheng?
 Siden den har en "kontrakt" eller bestemte regler, så kan man evt implementere den i utvidelse og holde styr på de bestemte reglene ved utvidelse av koden. For eksempel hvis jeg skulle ha lagd dette spillet større, og utvide inventory til:
