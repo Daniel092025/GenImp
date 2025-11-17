@@ -122,17 +122,15 @@ namespace GameInventory
 
         static void ShowAllInventories(Inventory<Weapon> weaponInventory, Inventory<string> potionInventory)
         {
-            Console.WriteLine("\n-------------------------------");
             Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\n-------------------------------");
             Console.WriteLine("Våpen-inventory:");
-            Console.ResetColor();
             weaponInventory.ShowInventory();
 
             Console.WriteLine("\nPotion-inventory:");
-            Console.ForegroundColor = ConsoleColor.Green;
             potionInventory.ShowInventory();
-            Console.ResetColor();
             Console.WriteLine("-------------------------------");
+            Console.ResetColor();
         }
     }
 }
