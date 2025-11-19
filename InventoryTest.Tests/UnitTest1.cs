@@ -18,6 +18,7 @@ public class UnitTest1
         
         // Assert
         Assert.Equal(1, inventory.weaponInventory);
+    
     }
 
     [Fact]
@@ -26,11 +27,37 @@ public class UnitTest1
         //Arrange...
         var inventory = new Inventory<Weapon>();
         var sword = new Weapon("Iron Sword", 45);
-        
+
         // Act
         inventory.AddItem(sword);
-        
+
         // Assert
-        Assert.Contains(sword, inventory.GetItem);
+        var retrievedWeapon = inventory.GetItem(0);
+        Assert.Equal(sword, retrievedWeapon);
     }
+
+    [Fact]
+    public void RemoveWeapon_ReduceAmount()
+    {
+        var inventory = new Inventory<Weapon>();
+        var sword = new Weapon("Iron Sword", 45);
+
+        inventory.AddItem(sword);
+        inventory.RemoveWeapon(sword);
+
+        Assert.Equal(0, inventory.weaponInventory);
+    }
+
+    [Fact]
+    public void Clear_RemovesAllItems()
+    {
+        var inv = new Inventory<Weapon>();
+        inv.AddItem(new Weapon("Iron Sword", 45));
+        inv.AddItem(new Weapon("Bow", 20));
+
+        inv.Clear();
+
+        Assert.Equal(0, inv.weaponInventory);
+    }
+
 }

@@ -16,6 +16,18 @@ namespace GameInventory.Classes
             Console.WriteLine($"{item} ble lagt til i inventory!");
         }
 
+        public void RemoveWeapon(T item)
+        {
+            items.Remove(item);
+            Console.WriteLine($"{item} ble fjernet fra inventory!");
+        }
+
+        public void Clear()
+        {
+            items.Clear();
+            Console.WriteLine("Inventory ble tømt!");
+        }
+
         public T GetItem(int index)
         {
             if (index < 0 || index >= items.Count)
