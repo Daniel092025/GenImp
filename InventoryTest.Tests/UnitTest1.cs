@@ -28,10 +28,10 @@ public class UnitTest1
         var inventory = new Inventory<Weapon>();
         var sword = new Weapon("Iron Sword", 45);
 
-        // Act
+        // Act............
         inventory.AddItem(sword);
 
-        // Assert
+        // Assert............
         var retrievedWeapon = inventory.GetItem(0);
         Assert.Equal(sword, retrievedWeapon);
     }
@@ -59,5 +59,7 @@ public class UnitTest1
 
         Assert.Equal(0, inv.weaponInventory);
     }
+
+    
 
 }
