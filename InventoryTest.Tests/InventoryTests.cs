@@ -19,7 +19,7 @@ public class InventoryTests
         inventory.AddItem(sword);
         
         // Assert
-        Assert.Equal(1, inventory.weaponInventory);
+        Assert.Equal(1, inventory.Count);
     
     }
 
@@ -47,7 +47,7 @@ public class InventoryTests
         inventory.AddItem(sword);
         inventory.RemoveWeapon(sword);
 
-        Assert.Equal(0, inventory.weaponInventory);
+        Assert.Equal(0, inventory.Count);
     }
 
     [Fact]
@@ -59,7 +59,7 @@ public class InventoryTests
 
         inv.Clear();
 
-        Assert.Equal(0, inv.weaponInventory);
+        Assert.Equal(0, inv.Count);
     }
 
     [Fact]
@@ -100,4 +100,29 @@ public class InventoryTests
         Assert.Equal(name, inventory.GetItem(0).Name);
         Assert.Equal(damage, inventory.GetItem(0).Damage);
     }
+
+    [Fact]
+    public void GetItem_InvalidIndex_ThrowsException()
+    {
+        var inv = new Inventory<Weapon>();
+
+        inv.AddItem(new Weapon("Sword", 10));
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => inv.GetItem(5));
+    }
+
+    [Fact]
+    public void RemoveItem_ItemNotInInventory_ThrowsInvalidOperationException()
+    {
+        var inv = new Inventory<Weapon>();
+
+        var sword = new Weapon("Sword", 10);
+        var ghost = new Weapon("Ghost Sword", 99);
+
+        inv.AddItem(sword);
+
+        Assert.Throws<InvalidOperationException>(() => inv.RemoveWeapon(ghost));
+    }
+
+
 }

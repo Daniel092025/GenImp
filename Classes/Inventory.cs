@@ -9,8 +9,7 @@ namespace GameInventory.Classes
         private List<T> items = new List<T>();
 
         public int Count => items.Count;
-        public int weaponInventory => items.Count;
-
+        
         public void AddItem(T item)
         {
             items.Add(item);
@@ -19,6 +18,11 @@ namespace GameInventory.Classes
 
         public void RemoveWeapon(T item)
         {
+            if (!items.Contains(item))
+            {
+                throw new InvalidOperationException("Item finnes ikke i inventoryen.");
+            }
+
             items.Remove(item);
             Console.WriteLine($"{item} ble fjernet fra inventory!");
         }
@@ -33,7 +37,7 @@ namespace GameInventory.Classes
         {
             if (index < 0 || index >= items.Count)
             {
-                throw new IndexOutOfRangeException("Ugyldig indeks. Ingen slik gjenstand.");
+                throw new ArgumentOutOfRangeException(nameof(index), "Ugyldig indeks.");
             }
             return items[index];
         }
@@ -65,5 +69,7 @@ namespace GameInventory.Classes
 
             Console.WriteLine($"Inventory lagret til fil: {filePath}");
         }
+
     }
 }
+
