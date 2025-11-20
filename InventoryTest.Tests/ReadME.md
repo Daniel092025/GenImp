@@ -2,9 +2,9 @@
 
 ---
 
-## Har laget en del tester på GenImp løsningen min. Der jeg prøver å teste om div funksjoner funker og ikke feiler. 
+### Har laget en del tester på GenImp løsningen min. Der jeg prøver å teste om div funksjoner funker og ikke feiler. 
 
-## Test AddCount og Add og GetItem
+### Test AddCount og Add og GetItem
 ```csharp
 public void AddWeapon_IncreasesInvetoryCount()
     {
@@ -24,7 +24,7 @@ public void AddWeapon_IncreasesInvetoryCount()
 public void AddWeapon_WeaponIsInInventory()
 ```
 
-## Test RemoveAllItems, tester med å legge til flere items. For å så å fjerne disse.
+### Test RemoveAllItems, tester med å legge til flere items. For å så å fjerne disse.
 
 ```csharp
 public void Clear_RemovesAllItems()
@@ -39,7 +39,7 @@ public void Clear_RemovesAllItems()
     }
 ```
 
-## At inventory funker igjennom interfacen
+### At inventory funker igjennom interfacen
 ```csharp
 public void Inventory_ImplementsIInventory()
 {

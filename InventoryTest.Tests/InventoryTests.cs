@@ -5,7 +5,7 @@ using GameInventory.Classes;
 using GameInventory.Models;
 using GameInventory.Interfaces;
 
-public class UnitTest1
+public class InventoryTests
 {
     [Fact]
     public void AddWeapon_IncreasesInvetoryCount()
