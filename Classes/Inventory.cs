@@ -8,6 +8,7 @@ namespace GameInventory.Classes
     {
         private List<T> items = new List<T>();
 
+        public int Count => items.Count;
         public int weaponInventory => items.Count;
 
         public void AddItem(T item)

@@ -3,6 +3,7 @@
 using System.Runtime.CompilerServices;
 using GameInventory.Classes;
 using GameInventory.Models;
+using GameInventory.Interfaces;
 
 public class UnitTest1
 {
@@ -59,6 +60,16 @@ public class UnitTest1
 
         Assert.Equal(0, inv.weaponInventory);
     }
+
+    [Fact]
+public void Inventory_ImplementsIInventory()
+{
+    IInventory<Weapon> inv = new Inventory<Weapon>();
+
+    inv.AddItem(new Weapon("Bow", 15));
+
+    Assert.Equal(1, inv.Count);
+}
 
     
 
